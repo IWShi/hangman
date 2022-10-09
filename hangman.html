@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="hangman.js"></script>
+  <style>
+    #startScreen {
+      font-family: Georgia, serif;
+      text-align: center;
+    }
+
+    #blankSpaces {
+      border: solid;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #table {
+      height: 450px;
+      width: 860px;
+      display: inline-block;
+      font-family: Georgia, serif;
+    }
+
+    td {
+      width: 430px;
+      height: 450px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="startScreen">
+    <h1 style="font-size: 10em">Hangman</h1>
+    <p style="font-size: 3em">Press start to begin</p>
+    <button onclick="beginGame()" style="font: 3em Georgia, serif;">START</button>
+  </div>
+
+  <div id="gameScreen" style="display: none;">
+    <canvas id="blankSpaces" width="1300" height="250"></canvas>
+    <canvas id="hangman" width="430" height="450"></canvas>
+    <table id="table">
+      <tr align="center" valign="top">
+        <td>
+          <div id="duringGame">
+            <h1>Guess a Letter</h1>
+            <input type="text" id="guessedLetter" onmousedown="clearResponse()"></input>
+            <button onclick="testLetter()" style="font-family: Georgia, serif;">SUBMIT</button><br><br>
+            <p id="guessResponse" style="display: none;"></p>
+          </div>
+          <div id="gameOver" style="display: none;">
+            <h1 id="gameResult"></h1>
+            <button onclick="retry()" style="font-family: Georgia, serif;">RETRY</button>
+          </div>
+        </td>
+        <td>
+          <h1>Used Letters</h1>
+          <p id="usedLetters"></p><br>
+          <p id="numGuesses"></p>
+        </td>
+      </tr>
+    </table>
+    <!--<p id="word"></p>-->
+  </div>
+</body>
+
+</html>
